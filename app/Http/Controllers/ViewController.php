@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
@@ -24,6 +25,7 @@ class ViewController extends Controller
 
         //return $data['search_products'];
         $data['categories'] = Category::all();
+        $data['brands'] = Brand::all();
         return view('User.search')->with($data);
     }
 
@@ -46,16 +48,28 @@ class ViewController extends Controller
    public function track()
    {
        $data['categories'] = Category::all();
-       return view('User/track')->with($data);
+       return view('User/product-detail')->with($data);
    }
 
    public function shopview()
    {
-       $data['categories'] = Category::all();
+        $data['categories'] = Category::all();
+       $data['brands'] = Brand::all();
         $data['products'] = Product::with('image')->get();
         //return $data['products'];
         return view('User/product')->with($data);
 
+   }
+
+   public function  product_detail($id)
+   {
+
+       $data['categories'] = Category::all();
+       $data['brands'] = Brand::all();
+       $data['shops'] = Product::with('image')->where('id',$id)->get();
+       //return $data['shops'];
+
+       return view('User/product-detail')->with($data);
    }
 
 

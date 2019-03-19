@@ -23,7 +23,7 @@
                     <div class="l_product_item">
                         <div class="l_p_img">
                             @foreach($product->image as $image)
-                                <img src="{{$image->Image_path}}" >
+                                <a href="{{route('shop.shopview',[$product->id])}}"> <img src="{{$image->Image_path}}" ></a>
 
                             @endforeach
                         </div>

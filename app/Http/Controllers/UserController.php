@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
@@ -16,7 +17,9 @@ class UserController extends Controller
     public function index()
     {
         $data['categories'] = Category::all();
+        $data['brands'] = Brand::all();
         $data['products']= Product::with('image')->get();
+
 
 
 //        return ($data['products']);
@@ -88,6 +91,24 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function productbrand($id)
+    {
+
+        if ($id)
+        {
+            $data['brand'] = Brand::with('product')->where('id',$id)->first();
+            $data['brands'] = $data['brand']->product;
+            //           return ($data['category']);
+            $data['categories'] = Category::all();
+
+        }
+        else{
+            $data['brands'] = Brand::all();
+            $data['products'] = Product::all();
+        }
+
+       return view('User/brand-product')->with($data);
     }
 
 

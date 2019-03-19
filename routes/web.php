@@ -41,16 +41,17 @@ Route::resource('coupen','CoupenController');
 
 Route::resource('user','UserController');
 
-/*Route::get('user/[category]','UserController@catproduct');*/
 
-/*Route::get('catproduct/{','CatproductController');*/
-Route::resource('catproduct','CatproductController');
+Route::get('catproduct/{category}','CatproductController@index')->name('catproduct');
+
+Route::get('brand/{brand}','UserController@productbrand')->name('brand');
 
 Route::get('search','ViewController@search_product')->name('search');
 
-//Route::resource('catproduct/{category}','ViewController@catproduct');
 
-//Route::get('track','ViewController@track');
+Route::get('track','ViewController@track');
 
 Route::get('shop','ViewController@shopview')->name('shop');
+
+Route::get('shop/{product}','ViewController@product_detail')->name('shop.shopview');
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 
 class CatproductController extends Controller
@@ -12,14 +14,16 @@ class CatproductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        if (request()->category)
+        if ($id)
         {
-            $data['category'] = Category::with('product')->where('id',request()->category)->first();
+            $data['category'] = Category::with('product')->where('id',$id)->first();
             $data['products'] = $data['category']->product;
             //           return ($data['category']);
             $data['categories'] = Category::all();
+            $data['brands'] = Brand::all();
+
         }
         else{
             $data['categories'] = Category::all();

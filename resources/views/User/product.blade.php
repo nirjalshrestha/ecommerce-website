@@ -55,7 +55,8 @@
                     <div class="l_product_item">
                         <div class="l_p_img">
                             @foreach($product->image as $image)
-                            <img class="img-fluid" src="{{$image->Image_path}}" alt="">
+
+                                <a href="{{route('shop.shopview',[$product->id])}}"><img class="img-fluid" src="{{$image->Image_path}}" alt=""></a>
                             @endforeach
                             <h5 class="sale">Sale</h5>
                         </div>
@@ -65,12 +66,13 @@
                                 <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
                                 <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
                             </ul>
-                            <h4>{{$product->title}}</h4>
+                            <a href="#"><h4>{{$product->title}}</h4></a>
                             <h5><del>$45.50</del> Rs{{$product->price}}</h5>
                         </div>
                     </div>
                 </div>
                 @endforeach
+
             </div>
         </div>
 

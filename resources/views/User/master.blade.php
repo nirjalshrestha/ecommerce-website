@@ -134,7 +134,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             @foreach($categories as $category)
-                            <li class="nav justify-content-center"><a class="nav-link" href="{{route('catproduct.index',['category'=>$category->id])}}">{{$category->title}}</a></li>
+                            <li class="nav justify-content-center"><a class="nav-link" href="{{route('catproduct',[$category->id])}}">{{$category->title}}</a></li>
                            @endforeach
                         </ul>
                     </li>
@@ -146,8 +146,8 @@
                             Brand <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            @foreach($categories as $category)
-                                <li class="nav justify-content-center"><a class="nav-link" href="{{route('catproduct.index',['category'=>$category->id])}}">{{$category->title}}</a></li>
+                            @foreach($brands as $brand)
+                                <li class="nav justify-content-center"><a class="nav-link" href="{{route('brand',[$brand->id])}}">{{$brand->title}}</a></li>
                             @endforeach
                         </ul>
                     </li>
