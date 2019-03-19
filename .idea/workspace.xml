@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="089b0e70-7dc7-46a9-a1d7-19ebd8fedb07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/User/brand-product.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/User/product-detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CatproductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CatproductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ViewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ViewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/catproduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/catproduct.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/homepage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/User/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/User/product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="089b0e70-7dc7-46a9-a1d7-19ebd8fedb07" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +222,7 @@
       <path value="$PROJECT_DIR$/vendor/unisharp/laravel-filemanager" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="960" />
     <option name="width" value="960" />
     <option name="height" value="1032" />
@@ -315,7 +303,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552994117605" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552994141509" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Project/Laravel/Store" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -381,12 +369,12 @@
       <workItem from="1552889382787" duration="13092000" />
       <workItem from="1552927390627" duration="4286000" />
       <workItem from="1552964658851" duration="6085000" />
-      <workItem from="1552975525662" duration="13340000" />
+      <workItem from="1552975525662" duration="13513000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215512000" />
+    <option name="totallyTimeSpent" value="215685000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
