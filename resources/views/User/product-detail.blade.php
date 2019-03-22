@@ -1,22 +1,11 @@
 @extends('User.master')
 @section('content')
-    <section class="categories_banner_area">
-        <div class="container">
-            <div class="c_banner_inner">
-                <h3>simple product Layout 03</h3>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li class="current"><a href="product-details2.html">Simple Product 03</a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
 
         <section class="product_details_area">
             <div class="container">
         <div class="row">
             @foreach($shops as $product)
+
             <div class="col-lg-5">
                 <div class="product_details_slider">
                     <div id="product_slider2" class="rev_slider" data-version="5.3.1.6">
@@ -94,7 +83,14 @@
                             <input type="text" name="qty" id="sst" maxlength="12" value="01" title="Quantity:" class="input-text qty">
                             <button onclick="if (!window.__cfRLUnblockHandlers) return false; var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button" data-cf-modified-44df9795d997141dda601dc0-=""><i class="icon_plus"></i></button>
                         </div>
-                        <a class="add_cart_btn" href="#">add to cart</a>
+                        <form action="{{route('cart.store')}}" method="post">
+
+                            @csrf
+                            <input type="hidden" name="id" value="{{$product->id}}">
+                            <input type="hidden" name="title" value="{{$product->title}}">
+                            <input type="hidden" name="price" value="{{$product->price}}">
+                            <button type="submit" class="add_cart_btn">add to cart</button>
+                        </form>
                     </div>
                     <div class="shareing_icon">
                         <h5>share :</h5>

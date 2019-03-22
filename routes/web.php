@@ -39,8 +39,9 @@ Route::resource('coupen','CoupenController');
 
 /*User Phase*/
 
-Route::resource('user','UserController');
+//Route::get('user','UserController');
 
+Route::get('/user','UserController@index')->name('user');
 
 Route::get('catproduct/{category}','CatproductController@index')->name('catproduct');
 
@@ -55,3 +56,16 @@ Route::get('shop','ViewController@shopview')->name('shop');
 
 Route::get('shop/{product}','ViewController@product_detail')->name('shop.shopview');
 
+/*Cart Phase*/
+/*Route::get('addToCart/{product}','CartController@index')->name('addToCart');
+
+Route::get('cart','CartController@show')->name('cart.index');*/
+
+
+Route::get('cart','CartController@index')->name('cart.index');
+Route::delete('cart/{product}','CartController@destroy')->name('cart.destroy');
+Route::post('cart','CartController@store')->name('cart.store');
+
+Route::get('empty', function () {
+    Cart::destroy();
+});

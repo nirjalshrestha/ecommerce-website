@@ -7,6 +7,7 @@ use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\Return_;
 
 class ViewController extends Controller
 {
@@ -54,7 +55,7 @@ class ViewController extends Controller
    public function shopview()
    {
         $data['categories'] = Category::all();
-       $data['brands'] = Brand::all();
+        $data['brands'] = Brand::all();
         $data['products'] = Product::with('image')->get();
         //return $data['products'];
         return view('User/product')->with($data);
@@ -71,6 +72,7 @@ class ViewController extends Controller
 
        return view('User/product-detail')->with($data);
    }
+
 
 
 }

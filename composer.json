@@ -10,11 +10,19 @@
     "require": {
         "php": "^7.1.3",
         "fideloper/proxy": "^4.0",
+        "gloudemans/shoppingcart": "^2.6",
         "jeroennoten/laravel-adminlte": "^1.24",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
-        "unisharp/laravel-filemanager": "dev-master"
+        "unisharp/laravel-filemanager": "dev-master",
+        "cartalyst/cart": "2.0.*@dev"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.cartalyst.com"
+        }
+    ],
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
         "filp/whoops": "^2.0",

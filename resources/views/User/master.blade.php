@@ -80,6 +80,7 @@
             </div>
             <div class="col-lg-3">
                 <div class="top_right_header">
+
                     <ul class="header_social">
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -89,15 +90,26 @@
                     </ul>
                     <ul class="top_right">
                         <li class="user"><a href="#"><i class="icon-user icons"></i></a></li>
-                        <li class="cart"><a href="#"><i class="icon-handbag icons"></i></a></li>
+                        <li>
+                            <a href="{{route('cart.index')}}">
+                                <i class="icon-handbag icons">
+
+                                    @if (Cart::instance('default')->count() > 0)
+
+                                            <span class="cart">{{Cart::instance('default')->count()}}</span>
+                                        @endif
+
+                                </i>
+                            </a>
+                        </li>
                         <li class="h_price">
                             <select class="selectpicker">
-                                <option>Rs0.00</option>
                                 <option>Rs0.00</option>
                                 <option>Rs0.00</option>
                             </select>
                         </li>
                     </ul>
+
                 </div>
             </div>
         </div>

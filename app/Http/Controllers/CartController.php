@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Category;
 use App\Product;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use PhpParser\Node\Stmt\Return_;
 
-class UserController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +21,9 @@ class UserController extends Controller
     {
         $data['categories'] = Category::all();
         $data['brands'] = Brand::all();
-        $data['products']= Product::with('image')->get();
-
+        $data['products'] = Product::with('image')->get();
         //return $data['products'];
-
-        return view('User/homepage')->with($data);
+        return view('User/cart')->with($data);
     }
 
     /**
@@ -43,7 +44,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        /*$products = Product::with('image')->get();
+        return $products;*/
+
+        Cart::add($request->id, $request->title, 1 , $request->price);
+
+        $products = Product::with('image')->where('id',$request->id)->first();
+
+
+        return redirect('cart');
+
     }
 
     /**
@@ -52,9 +63,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
+
     }
 
     /**
@@ -88,26 +100,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+
+        Return redirect('cart');
     }
-    public function productbrand($id)
-    {
-
-        if ($id)
-        {
-            $data['brand'] = Brand::with('product')->where('id',$id)->first();
-            $data['brands'] = $data['brand']->product;
-            //           return ($data['category']);
-            $data['categories'] = Category::all();
-
-        }
-        else{
-            $data['brands'] = Brand::all();
-            $data['products'] = Product::all();
-        }
-
-       return view('User/brand-product')->with($data);
-    }
-
-
 }
