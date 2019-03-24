@@ -234,15 +234,24 @@
 
                 <div class="l_product_item">
                     <div class="l_p_img">
-                        @foreach($product->image as $image)
-                            <a href="{{route('shop.shopview',[$product->id])}}"><img src="{{$image->Image_path}}" ></a>
+                        {{--@foreach($product->image as $image)--}}
+                            <a href="{{route('shop.shopview',[$product->id])}}"><img src="{{$product->image->first()->Image_path}}" ></a>
 
-                        @endforeach
+                        {{--@endforeach--}}
                         </div>
                         <div class="l_p_text">
                             <ul>
                                 <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
+                                <li>
+                                        <form action="{{route('cart.store')}}" method="post">
+
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{$product->id}}">
+                                            <input type="hidden" name="title" value="{{$product->title}}">
+                                            <input type="hidden" name="price" value="{{$product->price}}">
+                                            <button type="submit" class="add_cart_btn">add to cart</button>
+                                        </form>
+                                </li>
                                 <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
                             </ul>
                             <h4>{{$product->title}}</h4>

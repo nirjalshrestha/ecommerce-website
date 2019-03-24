@@ -104,8 +104,8 @@
                         </li>
                         <li class="h_price">
                             <select class="selectpicker">
-                                <option>Rs0.00</option>
-                                <option>Rs0.00</option>
+                                <option>Rs.{{Cart::total()}}</option>
+
                             </select>
                         </li>
                     </ul>

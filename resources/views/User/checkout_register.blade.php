@@ -1,21 +1,6 @@
 @extends('User.master')
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<!--================Categories Banner Area =================-->
-<section class="solid_banner_area">
-    <div class="container">
-        <div class="solid_banner_inner">
-            <h3>checkout register</h3>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="checkout.html">Checkout Register</a></li>
-            </ul>
-        </div>
-    </div>
-</section>
-<!--================End Categories Banner Area =================-->
+
 
 <!--================Register Area =================-->
 <section class="register_area p_100">
@@ -144,10 +129,13 @@
                         <h2 class="reg_title">Your Order</h2>
                         <div class="payment_list">
                             <div class="price_single_cost">
-                                <h5>Mens Casual Shirt <span>$25.20</span></h5>
-                                <h5>Mens Casual Shirt <span>$25.20</span></h5>
-                                <h4>Cart Subtotal <span>$50.00</span></h4>
-                                <h3><span class="normal_text">Order Totals</span> <span>$50.00</span></h3>
+                                @foreach(Cart::content() as $item)
+                                <h5>{{$item->title}} -({{$item->qty}}) <span>Rs.{{$item->price}}</span></h5>
+                                @endforeach
+                                <h4>Cart Subtotal <span>Rs.{{Cart::subtotal()}}</span>
+                                </h4>
+                                    <h4>Tax (13%) <span>Rs.{{Cart::tax()}}</span></h4>
+                                <h3><span class="normal_text">Order Totals</span> <span>Rs.{{Cart::total()}}</span></h3>
                             </div>
                             <div id="accordion" role="tablist" class="price_method">
                                 <div class="card">
@@ -161,21 +149,18 @@
 
                                     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                         <div class="card-body">
-                                            Lorem Ipsum is simply dummy text of the print-ing and typesetting industry. Lorem Ipsum has been the industry's.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header" role="tab" id="headingTwo">
-                                        <h5 class="mb-0">
-                                            <a class="collapsed" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">
-                                                cheque payment
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-                                        <div class="card-body">
-                                            Lorem Ipsum is simply dummy text of the print-ing and typesetting industry. Lorem Ipsum has been the industry's.
+                                            <form action="/your-server-side-code" method="POST">
+                                                <script
+                                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                                    data-key="pk_test_pIaGoPD69OsOWmh1FIE8Hl4J"
+                                                    data-amount="1999"
+                                                    data-name="Stripe Demo"
+                                                    data-description="Online course about integrating Stripe"
+                                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                                    data-locale="auto"
+                                                    data-currency="usd">
+                                                </script>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -217,6 +202,4 @@
     </div>
 </section>
 <!--================End Register Area =================-->
-</body>
-</html>
 @endsection

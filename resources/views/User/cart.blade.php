@@ -146,10 +146,11 @@
 
 
                             @foreach(Cart::content() as $item)
-                                <h2>{{dd($item->rowId)}}</h2>
+
+
                             <tr>
                                 <th scope="row">
-                                    <form method="post" action="{{route('cart.destroy',$item->id)}}}">
+                                    <form method="post" action="{{route('cart.destroy',$item->rowId)}}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"><img src="img/icon/close-icon.png" alt=""></button>
@@ -168,7 +169,7 @@
                                     </div>
                                 </td>
                                 <td><p>{{$item -> price}}</p></td>
-                                <td><input type="text" placeholder="01"></td>
+                                <td><input type="text" placeholder="1" value="{{$item->qty}}"></td>
                                 <td><p>{{$item -> price}}</p></td>
                             </tr>
                             @endforeach
@@ -191,16 +192,26 @@
                         </div>
                     </div>
                     <div class="cart_totals">
-                        <h3 class="cart_single_title">Discount Cupon</h3>
+                        <h3 class="cart_single_title">Cart Total Amount</h3>
                         <div class="cart_total_inner">
                             <ul>
-                                <li><a href="#"><span>Cart Subtotal</span> $400.00</a></li>
-                                <li><a href="#"><span>Shipping</span> Free</a></li>
-                                <li><a href="#"><span>Totals</span> $400.00</a></li>
+                                <li><a href="#"><span>Subtotal</span>Rs.{{Cart::subtotal()}}</a></li>
+                                <li><a href="#"><span>Shipping</span>
+                                @if (Cart::subtotal()> 10000)
+                                    Free
+                                    @else
+                                    Rs.100
+                                        @endif
+                                    </a>
+                                </li>
+
+
+                                <li><a href="#"><span>Tax (13%)</span>Rs.{{Cart::tax()}}</a></li>
+                                <li><a href="#"><span>Totals</span>Rs.{{Cart::total()}}</a></li>
                             </ul>
                         </div>
                         <button type="submit" class="btn btn-primary update_btn">update cart</button>
-                        <button type="submit" class="btn btn-primary checkout_btn">proceed to checkout</button>
+                        <button type="submit" class="btn btn-primary checkout_btn"><a href="{{route('checkout.index')}}">proceed to checkout</a></button>
                     </div>
                 </div>
             </div>

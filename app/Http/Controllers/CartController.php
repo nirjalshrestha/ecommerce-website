@@ -50,7 +50,9 @@ class CartController extends Controller
 
         Cart::add($request->id, $request->title, 1 , $request->price);
 
+
         $products = Product::with('image')->where('id',$request->id)->first();
+
 
 
         return redirect('cart');
@@ -100,6 +102,7 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
+
         Cart::remove($id);
 
         Return redirect('cart');

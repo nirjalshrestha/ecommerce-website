@@ -1,7 +1,5 @@
 @extends('User.master')
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
 <body>
 <!--================Categories Banner Area =================-->
 <section class="solid_banner_area">
@@ -77,6 +75,5 @@
     </div>
 </section>
 <!--================End Categories Banner Area =================-->
-</body>
-</html>
+
 @endsection

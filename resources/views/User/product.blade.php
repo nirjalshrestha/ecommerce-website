@@ -54,16 +54,24 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="l_product_item">
                         <div class="l_p_img">
-                            @foreach($product->image as $image)
+                          {{--  @foreach($product->image as $image)--}}
 
-                                <a href="{{route('shop.shopview',[$product->id])}}"><img class="img-fluid" src="{{$image->Image_path}}" alt=""></a>
-                            @endforeach
+                                <a href="{{route('shop.shopview',[$product->id])}}"><img class="img-fluid" src="{{$product->image->first()->Image_path}}" alt=""></a>
+                            {{--@endforeach--}}
                             <h5 class="sale">Sale</h5>
                         </div>
                         <div class="l_p_text">
                             <ul>
                                 <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                                <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
+                                <li>
+                                    <form action="{{route('cart.store')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{$product->id}}">
+                                        <input type="hidden" name="title" value="{{$product->title}}">
+                                        <input type="hidden" name="price" value="{{$product->price}}">
+                                        <button type="submit" class="add_cart_btn">add to cart</button>
+                                    </form>
+                                </li>
                                 <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
                             </ul>
                             <a href="#"><h4>{{$product->title}}</h4></a>
