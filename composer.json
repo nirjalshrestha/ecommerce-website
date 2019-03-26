@@ -14,15 +14,10 @@
         "jeroennoten/laravel-adminlte": "^1.24",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
-        "unisharp/laravel-filemanager": "dev-master",
-        "cartalyst/cart": "2.0.*@dev"
+        "stripe/stripe-php": "^6.31",
+        "unisharp/laravel-filemanager": "dev-master"
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packages.cartalyst.com"
-        }
-    ],
+
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
         "filp/whoops": "^2.0",

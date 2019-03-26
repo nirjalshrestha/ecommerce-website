@@ -1,5 +1,6 @@
 @extends('User.master')
 @section('content')
+    <script src="https://js.stripe.com/v3/"></script>
 <body>
 <!--================Categories Banner Area =================-->
 <section class="solid_banner_area">

@@ -68,6 +68,7 @@ Route::post('cart','CartController@store')->name('cart.store');
 
 
 Route::get('checkout','CheckoutController@index')->name('checkout.index');
+Route::post('/charge', 'CheckoutController@charge');
 
 Route::get('empty', function () {
     Cart::destroy();

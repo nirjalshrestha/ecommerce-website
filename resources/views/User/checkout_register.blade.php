@@ -1,6 +1,9 @@
 @extends('User.master')
 @section('content')
 
+{{--
+    <script src="https://js.stripe.com/v3/"></script>
+--}}
 
 <!--================Register Area =================-->
 <section class="register_area p_100">
@@ -149,16 +152,17 @@
 
                                     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                         <div class="card-body">
-                                            <form action="/your-server-side-code" method="POST">
+                                            <form action="/charge" method="POST">
+                                                @csrf
                                                 <script
                                                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                                    data-key="pk_test_pIaGoPD69OsOWmh1FIE8Hl4J"
-                                                    data-amount="1999"
-                                                    data-name="Stripe Demo"
-                                                    data-description="Online course about integrating Stripe"
+                                                    data-key="{{ env('STRIPE_PUB_KEY') }}"
+                                                    data-amount="19999"
+                                                    data-name="Stripe"
+                                                    data-description="Order"
                                                     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                                                     data-locale="auto"
-                                                    data-currency="usd">
+                                                    data-currency="npr">
                                                 </script>
                                             </form>
                                         </div>
@@ -203,3 +207,12 @@
 </section>
 <!--================End Register Area =================-->
 @endsection
+
+{{--<script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="{{ env('STRIPE_PUB_KEY') }}"
+    data-amount="1999"
+    data-name="Stripe">
+
+
+</script>--}}
